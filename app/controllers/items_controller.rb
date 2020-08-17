@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    redirect_to item_path(@item)
+    redirect_to items_show_path(@item)
   end
 
   def show
@@ -16,6 +16,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :this)
+    params.require(:item).permit(:title, :size, :color, :price, :description, :category, :pickup_location)
   end
 end
