@@ -1,19 +1,20 @@
 <div class="container">
-  <%= form_for(@item) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-    <%= f.label :size %>
-    <%= f.text_field :size %>
-    <%= f.label :color %>
-    <%= f.color_field :color %>
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.label :pickup_location %>
-    <%= f.text_field :pickup_location %>
+  <%= simple_form_for(@item) do |f| %>
+    <%= f.input :title %>
+    <br>
+    <%= f.input :price %>
+    <br>
+    <%= f.input :size, collection: %i(XXS XS S L XL XXL)  %>
+    <br>
+    <%= f.input :color, collection: %i(red orange yellow green blue purple pink white) %>
+    <br>
+    <%= f.input :category, collection: %I(Jacket Trousers Suits Skirts Shoes Sweaters)  %>
+    <br>
+    <%= f.input :description %>
+    <br>
+    <%= f.input :pickup_location %>
+    <br>
+    <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
 </div>

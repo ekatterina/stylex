@@ -18,11 +18,12 @@ end
   item = Item.new(
     title:    Faker::Company.name,
     pickup_location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    price: "test",
+    price: rand(100..500),
     color: Faker::Color.color_name,
     category: ["T-shirt", "Skirt", "Trousers", "Jeans"].sample,
     description: Faker::Lorem.sentence(word_count: 15),
-    user_id: rand(1..3)
+    user_id: rand(1..3),
+    size: "XL"
   )
   item.save!
 end
