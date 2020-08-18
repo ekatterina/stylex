@@ -3,7 +3,7 @@
     <tr>
       <th>Name</th>
       <th>User</th>
-      <th>category</th>
+      <th>Category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +14,7 @@
         <td><%= item.title %></td>
         <td><%= item.user.email %></td>
         <td><%= item.category %></td>
+        <td><%= item.price %></td>
         <td><%= link_to 'Show', item %></td>
         <!-- current_user == item.user -->
         <% if policy(item).edit?  %>

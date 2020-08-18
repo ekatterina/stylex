@@ -11,9 +11,12 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-    @item.save!
+    if @item.save
+      redirect_to item_path(@item)
+    else
+      render :new
+    end
     authorize @item
-    redirect_to item_path(@item)
   end
 
   def show
