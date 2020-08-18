@@ -1,4 +1,6 @@
 <div class="container">
   <%= @item.title %>
-
+  <br>
+  <%= link_to 'Borrow now', new_item_booking_path(@item), :class => 'btn btn-success' %>
+  <%#= render 'bookings/form' %>
 </div>
