@@ -1,3 +1,4 @@
+
 <table>
   <thead>
     <tr>
@@ -8,20 +9,9 @@
     </tr>
   </thead>
 
-  <tbody>
+  <div class="container d-flex">
     <% @items.each do |item| %>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.user.email %></td>
-        <td><%= item.category %></td>
-        <td><%= item.price %></td>
-        <td><%= link_to 'Show', item %></td>
-        <!-- current_user == item.user -->
-        <% if policy(item).edit?  %>
-          <td><%= link_to 'Edit', edit_item_path(item) %></td>
-          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+      <%= render 'shared/card', item_within: item %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
