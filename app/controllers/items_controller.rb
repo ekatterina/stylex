@@ -1,16 +1,24 @@
 class ItemsController < ApplicationController
+  def index
+    @items = policy_scope(Item).order(created_at: :desc)
+  end
+
   def new
     @item = Item.new
+    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to items_show_path(@item)
+    @item.user = current_user
+    @item.save!
+    authorize @item
+    redirect_to item_path(@item)
   end
 
   def show
-    @items = Item.all
+    @item = Item.find(params[:id])
+    authorize @item
   end
 
   private
