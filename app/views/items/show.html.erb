@@ -1,4 +1,22 @@
 <div class="container">
-  <%= @item.title %>
+  <!-- Image -->
 
+  <%= cl_image_tag @item.photo.key, width: 250, height: 300, crop: :fill %>
+
+
+  <%= @item.title %>
+    <div class="row text-centre row-space-1">
+      <div class="col-sm-3">
+        <%= @item.size %>
+          </div>
+            <div class="col-sm-3">
+              <%= @item.description %>
+            </div>
+            <div class="col-sm-3">
+          <%= @item.color %>
+        </div>
+        <div class="col-sm-3">
+      <%= @item.price %>
+    </div>
+  </div>
 </div>
