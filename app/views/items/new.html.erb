@@ -4,7 +4,7 @@
     <br>
     <%= f.input :price %>
     <br>
-   <%= f.input :size, collection: %i(XXS XS S L XL XXL)  %>
+    <%= f.input :size, collection: %i(XXS XS S L XL XXL)  %>
     <br>
     <%= f.input :color, collection: %i(red orange yellow green blue purple pink white) %>
     <br>
@@ -13,6 +13,8 @@
     <%= f.input :description %>
     <br>
     <%= f.input :pickup_location %>
+    <br>
+    <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
 </div>

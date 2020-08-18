@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
       render :new
     end
     authorize @item
+
   end
 
   def show
@@ -27,6 +28,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :size, :color, :price, :description, :category, :pickup_location)
+    params.require(:item).permit(:photo, :title, :size, :color, :price, :description, :category, :pickup_location)
   end
 end

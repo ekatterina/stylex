@@ -22,10 +22,8 @@ end
     color: Faker::Color.color_name,
     category: ["T-shirt", "Skirt", "Trousers", "Jeans"].sample,
     description: Faker::Lorem.sentence(word_count: 15),
-    user_id: rand(1..3)
+    user_id: rand(1..3),
+    size: "XL"
   )
   item.save!
 end
-
-size = Variable.new(sizes: i%(XS S L XL XXL))
-size.save!
