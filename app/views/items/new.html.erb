@@ -1,20 +1,28 @@
 <div class="container">
-  <%= simple_form_for(@item) do |f| %>
-    <%= f.input :title %>
-    <br>
-    <%= f.input :price %>
-    <br>
-    <%= f.input :size, collection: %i(XXS XS S L XL XXL)  %>
-    <br>
-    <%= f.input :color, collection: %i(red orange yellow green blue purple pink white) %>
-    <br>
-    <%= f.input :category, collection: %I(Jacket Trousers Suits Skirts Shoes Sweaters)  %>
-    <br>
-    <%= f.input :description %>
-    <br>
-    <%= f.input :pickup_location %>
-    <br>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
+
+<div class="modal-body row">
+   <div class="col-md-6">
+      <%= simple_form_for(@item) do |f| %>
+        <%= f.input :title %>
+        <br>
+        <%= f.input :price %>
+        <br>
+        <%= f.input :size, collection: %i(XXS XS S L XL XXL)  %>
+        <br>
+        <%= f.input :color, collection: %i(red orange yellow green blue purple pink white) %>
+        <br>
+        <%= f.input :category, collection: %I(Jacket Trousers Suits Skirts Shoes Sweaters)  %>
+        <br>
+        <%= f.input :description %>
+        <br>
+        <%= f.input :pickup_location %>
+        <br>
+        <%= f.input :photo, as: :file %>
+    </div>
+    <div class="col-md-6">
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
+    </div>
+</div>
+
 </div>

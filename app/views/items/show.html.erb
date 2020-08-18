@@ -1,6 +1,9 @@
 <div class="container">
 
   <%= @item.title %>
+<<<<<<< HEAD
+  <%= cl_image_tag( @item.photo.key) if @item.photo.attached? %>
+=======
   <br>
   <%= link_to 'Borrow now', new_item_booking_path(@item), :class => 'btn btn-success' %>
   <%#= render 'bookings/form' %>
@@ -28,4 +31,6 @@
       <%= @item.price %>
     </div>
   </div>
+>>>>>>> 2b6d4694e83bc82ba100a117f51dbe9f1b289361
 </div>
+
