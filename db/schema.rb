@@ -59,9 +59,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_133411) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
-    t.bigint "variable_id"
     t.index ["user_id"], name: "index_items_on_user_id"
-    t.index ["variable_id"], name: "index_items_on_variable_id"
   end
 
   create_table "reviews", force: :cascade do |t|
