@@ -15,10 +15,12 @@ require 'faker'
   user.save!
 end
 
-10.times do
+address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisstraße 20,Berlin', 'Mulackstraße, Berlin', 'Auguststraße 11-13, Berlin', 'Alexanderstraße 7, Berlin', 'Skalitzer Str. 45, Berlin', 'Goebenstraße 23, Berlin', 'Kantstraße 17, Berlin', 'Frankfurter Allee 27, Berlin']
+
+10.times do |i|
   item = Item.new(
     title:    Faker::Company.name,
-    pickup_location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    pickup_location: address[i],
     price: rand(100..500),
     color: Faker::Color.color_name,
     category: ["T-shirt", "Skirt", "Trousers", "Jeans"].sample,
