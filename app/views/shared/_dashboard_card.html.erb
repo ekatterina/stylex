@@ -1,5 +1,5 @@
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<div class="card-product m-3">
+  <img src="<%= cl_image_path(item_within.style_photo.key) if item_within.style_photo.attached? %>" alt="Card image cap">
   <div class="card-product-infos">
     <h2><%=item_within.title %></h2>
     <p><%= item_within.category + " " + item_within.price.to_s %>€ </p>
