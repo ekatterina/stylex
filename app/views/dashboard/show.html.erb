@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="modal-body row">
+  <div class="col-md-6">
+    <% @items.each do |item|  %>
+    <%= render '/shared/dashboard_card', item_within: item%>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <% @items.each do |item|  %>
+    <%= render '/shared/dashboard_card', item_within: item%>
+    <% end %>
+  </div>
+  </div>
+</div>

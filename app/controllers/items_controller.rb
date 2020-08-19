@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @item = Item.find(params[:id])
     authorize @item
   end
@@ -35,6 +36,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:photo, :title, :size, :color, :price, :description, :category, :pickup_location)
+    params.require(:item).permit(:title, :color, :size, :price, :description, :category, :pickup_location, :style_photo, individual_pieces: [])
   end
 end
