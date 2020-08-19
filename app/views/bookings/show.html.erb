@@ -1,4 +1,31 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
-
-<%= link_to 'Back to the item', item_path(@booking.item_id)%>
+<div class="container px-0" style='width: 1000px'>
+	<div class="container d-flex justify-content-between px-0">
+		<div>
+			<%= image_tag("https://via.placeholder.com/490x320") %>
+		</div>
+		<div>
+			<%= image_tag("https://via.placeholder.com/490x320") %>
+		</div>
+	</div>
+	<div class="container d-flex justify-content-between px-0 mt-3">
+		<div class="container px-0">
+			<p>Details</p>
+			<ul  class="list-group" style='list-style: none'>
+				<li><strong>Title </strong><%= @booking.item.title %></li>
+				<li><strong>Price </strong><%= @booking.item.price %></li>
+				<li><strong>Color </strong><%= @booking.item.color %></li>
+				<li><strong>Size </strong><%= @booking.item.size %></li>
+				<li><strong>Location </strong><%= @booking.item.pickup_location %></li>
+				<br>
+				<li><strong>Start Date </strong><%= @booking.start_date %></li>
+				<li><strong>End Date </strong><%= @booking.end_date %></li>
+			</ul>
+		</div>
+		<div class="container d-flex justify-content-between pr-0 pl-3 align-self-start">
+			<%= link_to 'Message', :class => 'btn btn-primary' %>
+			<%= image_tag("https://via.placeholder.com/50x50", :class => 'rounded-circle') %>
+		</div>
+	</div>
+	<br>
+	<%= link_to 'Back to the item', item_path(@booking.item_id)%>
+</div>
