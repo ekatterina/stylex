@@ -1,10 +1,12 @@
-<div class="col-xs-12 col-sm-4">
-  <div class="card">
-    <%= image_tag("shoes.jpg", :width =>"100%") %>
-      <div class="card-body  m-3">
-        <h5 class="card-title font-weight-bold"><%= item_within.title %></h5>
-        <p class="card-text">Price: <%= item_within.price %> </p>
-        <a href=<%="/items/#{item_within.id}" %> class="btn btn-primary" >Details</a>
-      </div>
-  </div>
-</div>
+
+
+    <div class="card">
+      <%= image_tag("shoes.jpg", :width => '100%') %>
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold"><%= item_within.title %></h5>
+          <p class="card-text">Price: <%= item_within.price %> </p>
+          <a href=<%="/items/#{item_within.id}" %> class="btn btn-primary" >Details</a>
+        </div>
+    </div>
+
+
