@@ -33,4 +33,4 @@ address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisst
 
 #   file = URI.open('https://www1.assets-gap.com/webcontent/0018/172/553/cn18172553.jpg')
 #   item.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
-# end
+end
