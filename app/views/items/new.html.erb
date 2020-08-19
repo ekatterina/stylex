@@ -1,25 +1,27 @@
 <div class="container">
-
+ <h1>Lend this style</h1>
 <div class="modal-body row">
    <div class="col-md-6">
-      <%= simple_form_for(@item) do |f| %>
+      <%= simple_form_for @item do |f| %>
         <%= f.input :title %>
         <br>
-        <%= f.input :price %>
+        <%= f.input :color, :label => "Main Color", collection: %i(red orange yellow green blue pink) %>
+        <br>
+        <%= f.input :category, collection: %I(Vintage Artsy Casual Gruge Chic Bohemian Formal Streetwear)  %>
         <br>
         <%= f.input :size, collection: %i(XXS XS S L XL XXL)  %>
         <br>
-        <%= f.input :color, collection: %i(red orange yellow green blue purple pink white) %>
-        <br>
-        <%= f.input :category, collection: %I(Jacket Trousers Suits Skirts Shoes Sweaters)  %>
-        <br>
-        <%= f.input :description %>
+        <%= f.input :price, :label => "Price/Night in €" %>
         <br>
         <%= f.input :pickup_location %>
         <br>
-        <%= f.input :photo, as: :file %>
     </div>
     <div class="col-md-6">
+        <%= f.input :description, input_html: { style:  'height: 300px '}  %>
+        <br>
+        <%= f.input :style_photo, :label => "Style Photo", as: :file, :input_html => { class: 'btn btn-info' }  %>
+        <br>
+        <%= f.input :individual_pieces, :label => "Individual Pieces", as: :file, input_html: { multiple: true, class: 'btn btn-info' } %>
         <%= f.button :submit, class: "btn btn-success" %>
       <% end %>
     </div>

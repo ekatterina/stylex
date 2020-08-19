@@ -1,36 +1,19 @@
 <div class="container">
-
-  <%= @item.title %>
-<<<<<<< HEAD
-  <%= cl_image_tag( @item.photo.key) if @item.photo.attached? %>
-=======
-  <br>
-  <%= link_to 'Borrow now', new_item_booking_path(@item), :class => 'btn btn-success' %>
-  <%#= render 'bookings/form' %>
-  
-  <!-- Image -->
-
-  <%= cl_image_tag @item.photo.key, width: 250, height: 300, crop: :fill %>
-
-
-  <%= @item.title %>
-
-  <%= cl_image_tag @item.photo.key, height: 300, width: 400, crop: :fill %>
-
-    <div class="row text-centre row-space-1">
-      <div class="col-sm-3">
-        <%= @item.size %>
-          </div>
-            <div class="col-sm-3">
-              <%= @item.description %>
-            </div>
-            <div class="col-sm-3">
-          <%= @item.color %>
-        </div>
-        <div class="col-sm-3">
-      <%= @item.price %>
-    </div>
+  <div class="modal-body row">
+  <div class="col-md-6">
+    <%= cl_image_tag @item.style_photo.key, width: 400, height: 700, crop: :fill, :class => 'rounded' %>
+    <h1><%= @item.title %></h1>
+    <p><%= @item.description %></p>
   </div>
->>>>>>> 2b6d4694e83bc82ba100a117f51dbe9f1b289361
+  <div class="col-md-3">
+    <%= cl_image_tag @item.individual_pieces[0].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' %>
+    <%= cl_image_tag @item.individual_pieces[1].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' %>
+    <h4>Price per night <%= @item.price%>€</h4>
+  </div>
+  <div class="col-md-3">
+    <%= cl_image_tag @item.individual_pieces[2].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' %>
+    <%= cl_image_tag @item.individual_pieces[3].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' %>
+    <%= link_to 'Borrow now', new_item_booking_path(@item), :class => 'btn btn-success' %>
+  </div>
+  </div>
 </div>
-
