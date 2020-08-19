@@ -1,6 +1,13 @@
 class ItemsController < ApplicationController
   def index
-    @items = policy_scope(Item).order(created_at: :desc)
+    @items = policy_scope(Item).order(created_at: :desc).geocoded
+    @markers = @items.map do |item|
+      {
+        lat: item.latitude,
+        lng: item.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { item: item })
+      }
+    end
   end
 
   def new
