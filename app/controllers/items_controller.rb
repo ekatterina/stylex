@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @item = Item.find(params[:id])
     authorize @item
   end
