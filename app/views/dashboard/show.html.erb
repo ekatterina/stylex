@@ -1,14 +1,20 @@
 <div class="container">
   <div class="modal-body row">
-  <div class="col-md-6">
+  <div class="col-md-4">
+    <div id="profile-card" class="container text-center">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle mt-5", id: "avatar" %>
+      <h2></h2>
+      <h2><%= @user.email  %></h2>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2>Styles I lend:</h2>
     <% @items.each do |item|  %>
     <%= render '/shared/dashboard_card', item_within: item%>
     <% end %>
   </div>
-  <div class="col-md-6">
-    <% @items.each do |item|  %>
-    <%= render '/shared/dashboard_card', item_within: item%>
-    <% end %>
+  <div class="col-md-4">
+    <h2>Styles I borrow:</h2>
   </div>
   </div>
 </div>
