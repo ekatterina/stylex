@@ -1,7 +1,31 @@
+
+<div class="container">
+  <div class="modal-body row">
+  <div class="col-md-6">
+    <%= cl_image_tag @item.style_photo.key, width: 400, height: 700, crop: :fill, :class => 'rounded'  if !@item.individual_pieces[0].nil? %>
+    <h1><%= @item.title %></h1>
+    <p><%= @item.description %></p>
+  </div>
+  <div class="col-md-3">
+    <%= cl_image_tag @item.individual_pieces[0].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' if !@item.individual_pieces[0].nil? %>
+    <%= cl_image_tag @item.individual_pieces[1].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' if !@item.individual_pieces[1].nil? %>
+    <p>Price per night <%= @item.price%>€</p>
+    <p>Size: <%= @item.size %></p>
+    <p>Category: <%= @item.category %></p>
+    <p>Drop-off Location: <%= @item.pickup_location %></p>
+  </div>
+  <div class="col-md-3">
+    <%= cl_image_tag @item.individual_pieces[2].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' if !@item.individual_pieces[2].nil? %>
+    <%= cl_image_tag @item.individual_pieces[3].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' if !@item.individual_pieces[3].nil? %>
+    <%= link_to 'Borrow now', new_item_booking_path(@item), :class => 'btn btn-success' %>
+  </div>
+  </div>
+  
 <div class="container px-0" style='width: 1000px'>
   <%#= link_to 'Borrow now', new_item_booking_path(@item), :class => 'btn btn-primary' %>
   <%#= render 'bookings/form' %>
   <!-- Form -->
   <%= render 'bookings/form', :booking => @booking %>
+
 </div>
 

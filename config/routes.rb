@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  get 'dashboard/show'
   devise_for :users
   root to: 'pages#home'
+  get 'user/dashboard/', to: 'dashboard#show'
 
   resources :items do
     resources :bookings, only: [:new, :create]
   end
+
 
   resources :bookings, only: [:show] do
     resources :reviews, only: [:new, :create]
