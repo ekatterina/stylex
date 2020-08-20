@@ -33,6 +33,13 @@ class ItemsController < ApplicationController
     authorize @item
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
+    authorize @item
+  end
+
   private
 
   def item_params
