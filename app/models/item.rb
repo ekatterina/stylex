@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   validates :title, presence: true
   # validates :style_photo, presence: true
   validates :price, presence: true
-  validates :size, presence: true
+  validates :size, presence: true, inclusion: { in: %I(XS S M L XL XXL) }
   validates :pickup_location, presence: true
   # validates :individual_pieces, length: {minimum: 1}
 end

@@ -1,11 +1,13 @@
   <div class="container d-flex">
       <div class="row">
         <div class="col-md-6">
+          <% if @items.count > 0 %>
             <div class="cards">
             <% @items.each do |item| %>
               <%= render 'shared/card', item_within: item %>
             <% end %>
-         </div>
+            </div>
+
       </div>
 
       <div class="col-md-6">
@@ -14,6 +16,9 @@
            data-markers="<%= @markers.to_json %>"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
+        <% else %>
+        <div>Sorry, no items available for your selection</div>
+        <% end %>
     </div>
   </div>
 </div>

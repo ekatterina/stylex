@@ -16,12 +16,14 @@
         class: "form-control",
         placeholder: "To:"
         %>
-      <%= text_field_tag :size,
-        params[:size],
-        class: "form-control",
-        placeholder: "Size"
+      <%= select_tag :size, options_for_select(['XS', 'S', 'M', 'L', 'XL', 'XXL']),
+        # params[:size],
+        class: "form-control"
+        # placeholder: "Size"
         %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+    <% end %>
   </div>
 </div>
+
+<%#= f.collection_select :provider_id, Provider.order(:name),:id,:name, include_blank: true %>
