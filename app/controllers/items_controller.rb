@@ -1,6 +1,13 @@
 class ItemsController < ApplicationController
   def index
-    @items = policy_scope(Item).order(created_at: :desc).geocoded
+      @items = policy_scope(Item).order(created_at: :desc)
+      # @items = policy_scope(Item).where("pickup_location ILIKE ?", "%#{params[:pickup_location]}%").order(created_at: :desc) if params[:pickup_location].present?
+      # @items = policy_scope(Item).where(start_date, params[:start_date]).order(created_at: :desc).geocoded if params[:start_date].present?
+      # @items = policy_scope(Item).where(end_date, params[:end_date]).order(created_at: :desc).geocoded if params[:end_date].present?
+      @items = policy_scope(Item).where(size, params[:size]}).order(created_at: :desc).geocoded if params[:size].present?
+
+      @items.geocoded
+
     @markers = @items.map do |item|
       {
         lat: item.latitude,
@@ -9,6 +16,8 @@ class ItemsController < ApplicationController
       }
     end
   end
+end
+
 
   def new
     @item = Item.new

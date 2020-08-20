@@ -1,4 +1,27 @@
 <div class="background-image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= image_path("stylegroup.png") %>');">
-
+  <div class="container d-flex">
+    <%= form_tag items_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :pickup_location,
+        params[:pickup_location],
+        class: "form-control",
+        placeholder: "Location"
+        %>
+      <%= date_field_tag :start_date,
+        params[:start_date],
+        class: "form-control",
+        placeholder: "From:"
+        %>
+      <%= date_field_tag :end_date,
+        params[:end_date],
+        class: "form-control",
+        placeholder: "To:"
+        %>
+      <%= text_field_tag :size,
+        params[:size],
+        class: "form-control",
+        placeholder: "Size"
+        %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+  </div>
 </div>
-
