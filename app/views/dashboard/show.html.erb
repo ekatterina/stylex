@@ -10,11 +10,14 @@
   <div class="col-md-4">
     <h2>Styles I lend:</h2>
     <% @items.each do |item|  %>
-    <%= render '/shared/dashboard_card', item_within: item%>
+    <%= render '/shared/dashboard_lend_card', item_within: item%>
     <% end %>
   </div>
   <div class="col-md-4">
     <h2>Styles I borrow:</h2>
+    <% @borrowed_items.each do |item|  %>
+    <%= render '/shared/dashboard_borrow_card', item_within: item%>
+    <% end %>
   </div>
   </div>
 </div>
