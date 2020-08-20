@@ -1,15 +1,23 @@
-<div class="container px-0" style='width: 1000px'>
-	<div class="container d-flex justify-content-between px-0">
-		<div>
-			<%= image_tag("https://via.placeholder.com/490x320") %>
+<div class="container px-0">
+	<div class="d-flex px-0">
+		<div class='px-0 col-6'>
+			<% if @booking.item.individual_pieces[0].nil? %>
+				<%= image_tag("shoes.jpg", :width => '490px') %>
+			<% else %>
+				<%= cl_image_tag @booking.item.style_photo.key, height: 490, width: 320, crop: :fill, :class => 'img-thumbnail m-2' %>
+			<% end %>
 		</div>
-		<div>
-			<%= image_tag("https://via.placeholder.com/490x320") %>
+		<div class='px-0 col-6'>
+			<div id="map"
+        style="height: 600px; position: relative"
+        data-markers="<%= @coordinates.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
 		</div>
 	</div>
 	<div class="container d-flex justify-content-between px-0 mt-3">
 		<div class="container px-0">
-			<p>Details</p>
+			<h1>Details of borrowed style</h1>
 			<ul  class="list-group" style='list-style: none'>
 				<li><strong>Title </strong><%= @booking.item.title %></li>
 				<li><strong>Price </strong><%= @booking.item.price %></li>
@@ -22,8 +30,8 @@
 			</ul>
 		</div>
 		<div class="container d-flex justify-content-between pr-0 pl-3 align-self-start">
-			<%= link_to 'Message', :class => 'btn btn-primary' %>
-			<%= image_tag("https://via.placeholder.com/50x50", :class => 'rounded-circle') %>
+			<%= mail_to @booking.user.email, "Email Me", :class => 'btn btn-primary' %>
+			<%= cl_image_tag("Logo/avatar_man_inwjuc", :width => '50px', :class => 'rounded-circle') %>
 		</div>
 	</div>
 	<br>

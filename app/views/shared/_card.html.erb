@@ -1,7 +1,6 @@
-
-
+<!-- now style foto appears on the card -->
     <div class="card">
-      <%= image_tag("shoes.jpg", :width => '100%') %>
+      <%= image_tag item_within.style_photo, alt: "alttext", :width => '100%' %>
         <div class="card-body">
           <h5 class="card-title font-weight-bold"><%= item_within.title %></h5>
           <p class="card-text">Price: <%= item_within.price %> </p>
