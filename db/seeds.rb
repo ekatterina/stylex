@@ -1,12 +1,6 @@
-  require "open-uri"
 require 'faker'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
 3.times do
  user = User.new(
   email: Faker::Internet.email,
@@ -14,23 +8,229 @@ require 'faker'
   )
   user.save!
 end
-
+puts "3 Users seeded successfully"
 
 address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisstraße 20,Berlin', 'Mulackstraße, Berlin', 'Auguststraße 11-13, Berlin', 'Alexanderstraße 7, Berlin', 'Skalitzer Str. 45, Berlin', 'Goebenstraße 23, Berlin', 'Kantstraße 17, Berlin', 'Frankfurter Allee 27, Berlin']
 
-10.times do |i|
+
+  # Outfit 1 __________________________________________________________________________
   item = Item.new(
-    title:    Faker::Company.name,
-    pickup_location: address[i],
+    title: Faker::Hipster.sentence(word_count: 2),
+    pickup_location: address.sample,
     price: rand(100..500),
     color: Faker::Color.color_name,
-    category: ["T-shirt", "Skirt", "Trousers", "Jeans"].sample,
+    category: %I(Vintage Artsy Casual Gruge Chic Bohemian Formal Streetwear).sample,
     description: Faker::Lorem.sentence(word_count: 15),
     user_id: rand(1..3),
-    size: "XL"
+    size: %I(XS S M L XL XXL).sample
   )
-  item.save!
 
-#   file = URI.open('https://www1.assets-gap.com/webcontent/0018/172/553/cn18172553.jpg')
-#   item.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
-end
+  item.style_photo.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913613/outfit/o1_style_x6vwjj.png'),
+    filename: 'style1.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913613/outfit/o1_shoes_ugxsls.png'),
+    filename: 'piece1.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913613/outfit/o1_jacket_j50uvs.png'),
+    filename: 'piece1.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913613/outfit/o1_sweater_a94vol.png'),
+    filename: 'piece1.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913613/outfit/o1_pants_fglwpo.png'),
+    filename: 'piece1.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.save!
+  puts "One item seeded successfully"
+
+  # Outfit 2 __________________________________________________________________________
+  item = Item.new(
+    title: Faker::Hipster.sentence(word_count: 3),
+    pickup_location: address.sample,
+    price: rand(100..500),
+    color: Faker::Color.color_name,
+    category: %I(Vintage Artsy Casual Gruge Chic Bohemian Formal Streetwear).sample,
+    description: Faker::Lorem.sentence(word_count: 15),
+    user_id: rand(1..3),
+    size: %I(XS S M L XL XXL).sample
+  )
+
+  item.style_photo.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913613/outfit%202/o2_style_gcd2jf.png'),
+    filename: 'style.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913614/outfit%202/o2_shorts_vpcvvb.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913614/outfit%202/o2_Sweater_m6twht.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.save!
+  puts "Another item seeded successfully"
+
+  # Outfit 3 __________________________________________________________________________
+  item = Item.new(
+    title: Faker::Hipster.sentence(word_count: 3),
+    pickup_location: address.sample,
+    price: rand(100..500),
+    color: Faker::Color.color_name,
+    category: %I(Vintage Artsy Casual Gruge Chic Bohemian Formal Streetwear).sample,
+    description: Faker::Lorem.sentence(word_count: 15),
+    user_id: rand(1..3),
+    size: %I(XS S M L XL XXL).sample
+  )
+
+  item.style_photo.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913614/outfit%203/o3_style_ryu3cl.png'),
+    filename: 'style.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913614/outfit%203/o3_sweater_gfyjik.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913614/outfit%203/o3_pants_pbgo3w.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913614/outfit%203/o3_shoes_nv6t6j.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.save!
+  puts "Another item seeded successfully"
+
+  # Outfit 4 __________________________________________________________________________
+  item = Item.new(
+    title: Faker::Hipster.sentence(word_count: 3),
+    pickup_location: address.sample,
+    price: rand(100..500),
+    color: Faker::Color.color_name,
+    category: %I(Vintage Artsy Casual Gruge Chic Bohemian Formal Streetwear).sample,
+    description: Faker::Lorem.sentence(word_count: 15),
+    user_id: rand(1..3),
+    size: %I(XS S M L XL XXL).sample
+  )
+
+  item.style_photo.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913615/outfit%204/o4_style_nlpcjs.png'),
+    filename: 'style.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913615/outfit%204/o4_skirt_m4ousu.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913615/outfit%204/o4_leggings_b8sroe.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913614/outfit%204/o4_top_nvqsrx.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913614/outfit%204/o4_shoes_ughfni.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.save!
+  puts "Another item seeded successfully"
+
+# Outfit 5 __________________________________________________________________________
+  item = Item.new(
+    title: Faker::Hipster.sentence(word_count: 3),
+    pickup_location: address.sample,
+    price: rand(100..500),
+    color: Faker::Color.color_name,
+    category: %I(Vintage Artsy Casual Gruge Chic Bohemian Formal Streetwear).sample,
+    description: Faker::Lorem.sentence(word_count: 15),
+    user_id: rand(1..3),
+    size: %I(XS S M L XL XXL).sample
+  )
+
+  item.style_photo.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913615/outfit%205/o5_style_rm2vdy.png'),
+    filename: 'style.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913615/outfit%205/o5_skirt_i92ypd.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913616/outfit%205/o5_shoe_kk9qgo.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.individual_pieces.attach(
+    io: open('https://res.cloudinary.com/dj9iphc8u/image/upload/v1597913616/outfit%205/o5_top_lywosa.png'),
+    filename: 'piece.png',
+    content_type: 'image/png',
+    identify: false
+  )
+
+  item.save!
+  puts "Another item seeded successfully"
