@@ -8,9 +8,9 @@ class Item < ApplicationRecord
   has_one_attached :style_photo
 
   validates :title, presence: true
-  validates :style_photo, presence: true
+  # validates :style_photo, presence: true
   validates :price, presence: true
   validates :size, presence: true
   validates :pickup_location, presence: true
-  validates :individual_pieces, length: {minimum: 1}
+  # validates :individual_pieces, length: {minimum: 1}
 end
