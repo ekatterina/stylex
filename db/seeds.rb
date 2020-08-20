@@ -5,12 +5,12 @@ counter = 1
 
 3.times do
  user = User.new(
-  first_name:
-  last_name:
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
   password: "123456"
   )
-  file = URI.open("https://res.cloudinary.com/db5jh0zwo/image/upload/v1597933233/avatar#{counter}.jpg")
+  file = URI.open("https://res.cloudinary.com/dj9iphc8u/image/upload/v1597937355/Avatars/avatar#{counter}.jpg")
   user.photo.attach(io: file, filename: "avatar#{counter}.jpg", content_type: 'image/jpg')
   user.save!
   counter += 1
