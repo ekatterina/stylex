@@ -1,10 +1,15 @@
 <div class="container">
   <div class="modal-body row">
   <div class="col-md-4">
-    <div id="profile-card" class="container text-center">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle mt-5", id: "avatar" %>
+    <div id="profile-card" class="container text-center p-3">
+      <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "rounded-circle mt-5", id: "avatar" %>
+      <%#= cl_image_tag(@user.photo.key, :width=>150, :height=>150, :gravity=>"face", :radius=>"max", :crop=>"crop") unless @user.photo.nil? %>
+      <%= cl_image_tag(@user.photo.key, :transformation=>[
+        {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+        {:width=>200, :crop=>"scale"}
+        ]) unless @user.photo.nil? %>
       <h2></h2>
-      <h2><%= @user.email  %></h2>
+      <h2><%= @user.first_name %> <%= @user.last_name  %></h2>
     </div>
   </div>
   <div class="col-md-4">
