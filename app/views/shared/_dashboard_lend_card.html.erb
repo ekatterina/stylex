@@ -1,0 +1,7 @@
+<div class="card-product m-3">
+  <img src="<%= cl_image_path(item_within.style_photo.key) if item_within.style_photo.attached? %>" alt="Card image cap">
+  <div class="card-product-infos">
+    <h2><%= link_to item_within.title, "/items/#{item_within.id}" %></h2>
+    <p><%= item_within.category + " " + item_within.price.to_s %>€ </p>
+  </div>
+</div>
