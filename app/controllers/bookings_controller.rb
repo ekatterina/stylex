@@ -29,6 +29,12 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @coordinates = [
+      {
+        lat: @booking.item.latitude,
+        lng: @booking.item.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { item: item })
+      }]
     authorize @booking
   end
 

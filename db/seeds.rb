@@ -7,13 +7,13 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# 3.times do
-#  user = User.new(
-#   email: Faker::Internet.email,
-#   password: "123456"
-#   )
-#   user.save!
-# end
+3.times do
+ user = User.new(
+  email: Faker::Internet.email,
+  password: "123456"
+  )
+  user.save!
+end
 
 
 address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisstraße 20,Berlin', 'Mulackstraße, Berlin', 'Auguststraße 11-13, Berlin', 'Alexanderstraße 7, Berlin', 'Skalitzer Str. 45, Berlin', 'Goebenstraße 23, Berlin', 'Kantstraße 17, Berlin', 'Frankfurter Allee 27, Berlin']
