@@ -1,12 +1,19 @@
 require 'faker'
 require 'open-uri'
 
+counter = 1
+
 3.times do
  user = User.new(
+  first_name:
+  last_name:
   email: Faker::Internet.email,
   password: "123456"
   )
+  file = URI.open("https://res.cloudinary.com/db5jh0zwo/image/upload/v1597933233/avatar#{counter}.jpg")
+  user.photo.attach(io: file, filename: "avatar#{counter}.jpg", content_type: 'image/jpg')
   user.save!
+  counter += 1
 end
 puts "3 Users seeded successfully"
 
