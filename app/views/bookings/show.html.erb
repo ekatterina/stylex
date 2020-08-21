@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container  d-block">
 	<h1>Congratulations you've just borrowed a style!</h1>
 	<br>
 	<div class="d-flex">
@@ -17,16 +17,39 @@
 		<div class="row">
 			<div class="col-6 mt-3">
 				<h2>Details of borrowed style</h2>
-				<ul  class="list-group" style='list-style: none'>
-					<li>Title: <%= @booking.item.title %></li>
-					<li>Price: <%= @booking.item.price %></li>
-					<li>Color: <%= @booking.item.color %></li>
-					<li>Size: <%= @booking.item.size %></li>
-					<li>Location: <%= @booking.item.pickup_location %></li>
-					<br>
-					<li>Start Date: </strong><%= @booking.start_date.to_s[0,10] %></li>
-					<li>End Date: </strong><%= @booking.end_date.to_s[0,10] %></li>
-				</ul>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">Title</th>
+              <td><%= @booking.item.title %></td>
+            </tr>
+            <tr>
+              <th scope="row">Price</th>
+              <td><%= @booking.item.price %></td>
+            </tr>
+            <tr>
+              <th scope="row">Color</th>
+              <td><%= @booking.item.color %></td>
+            </tr>
+            <tr>
+              <th scope="row">Size</th>
+              <td><%= @booking.item.size %></td>
+            </tr>
+            <tr>
+              <th scope="row">Location</th>
+              <td><%= @booking.item.pickup_location %></td>
+            </tr>
+            <tr>
+              <th scope="row">From</th>
+              <td><%= @booking.start_date.to_s[0,10] %></td>
+            </tr>
+            <tr>
+              <th scope="row">To</th>
+              <td><%= @booking.end_date.to_s[0,10] %></td>
+            </tr>
+          </tbody>
+        </table>
+
 			</div>
 			<div class="col-6 mt-3">
 				<h2>Contact the style owner</h2>
@@ -35,11 +58,11 @@
 						<%= cl_image_tag(@booking.item.user.photo.key, :width => '50px', :class => 'rounded-circle mr-3') %>
 						<p>Hi, i'm <%= @booking.item.user.first_name %> <%= @booking.item.user.last_name %>!</p>
 					</div>
-					<%= mail_to @booking.item.user.email, "Email Me", :class => 'btn btn-primary' %>
+					<%= mail_to @booking.item.user.email, "Email Me", :class => 'btn btn-primary', id: "apple" %>
 				</div>
 			</div>
 		</div>
 	<br>
-	<%= link_to 'Back to the item', item_path(@booking.item_id)%>
+	<%#= link_to 'Back to the item', item_path(@booking.item_id)%>
 	</div>
 </div>
