@@ -22,7 +22,7 @@
 }
 
 .btn-green{
-  padding: 16px 24px;
+  padding: 10px 20px;
   background: #6A994E;
   border-radius: 50px;
   font-style: normal;
@@ -37,4 +37,16 @@
     color: #6A994E;
     border: 2px solid #6A994E;
   }
+}
+
+.btn-grey {
+  padding: 10px 20px;
+  background: lightgrey;
+  border-radius: 50px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  color: black;
 }
