@@ -1,11 +1,11 @@
 <div class="container">
 	<h1>Congratulations you've just borrowed a style!</h1>
 	<br>
-	<div class="row">
-		<div class='col-6'>
-			<%= cl_image_tag @booking.item.style_photo.key, height: 320, crop: :fill, :style =>'width: 100%; object-fit: cover; object-position: center top;' %>
+	<div class="d-flex">
+		<div>
+			<%= cl_image_tag @booking.item.style_photo.key, height: 320, crop: :fill, :style =>'object-fit: cover; object-position: center top; margin-right: 20px;' %>
 		</div>
-		<div class='col-6'>
+		<div style='flex-grow: 1;'>
 			<div id="map"
         style="height: 320px; position: relative"
         data-markers="<%= @coordinates.to_json %>"
@@ -24,13 +24,19 @@
 					<li>Size: <%= @booking.item.size %></li>
 					<li>Location: <%= @booking.item.pickup_location %></li>
 					<br>
-					<li>Start Date: </strong><%= @booking.start_date %></li>
-					<li>End Date: </strong><%= @booking.end_date %></li>
+					<li>Start Date: </strong><%= @booking.start_date.to_s[0,10] %></li>
+					<li>End Date: </strong><%= @booking.end_date.to_s[0,10] %></li>
 				</ul>
 			</div>
-			<div class="col-6 mt-3 d-flex justify-content-between align-items-start">
-				<%= cl_image_tag(@booking.item.user.photo.key, :width => '50px', :class => 'rounded-circle') %>
-				<%= mail_to @booking.user.email, "Email Me", :class => 'btn btn-primary' %>
+			<div class="col-6 mt-3">
+				<h2>Contact the style owner</h2>
+				<div class="d-flex justify-content-between align-items-start">
+					<div class="d-flex align-items-center">
+						<%= cl_image_tag(@booking.item.user.photo.key, :width => '50px', :class => 'rounded-circle mr-3') %>
+						<p>Hi, i'm <%= @booking.item.user.first_name %> <%= @booking.item.user.last_name %>!</p>
+					</div>
+					<%= mail_to @booking.item.user.email, "Email Me", :class => 'btn btn-primary' %>
+				</div>
 			</div>
 		</div>
 	<br>
