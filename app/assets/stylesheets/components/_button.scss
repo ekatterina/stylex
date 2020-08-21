@@ -1,0 +1,40 @@
+.btn-green-inv {
+  color: #6A994E;
+  padding: 10px 20px;
+  font-weight: bold;
+  opacity: 0.6;
+  border: 2px solid #6A994E;
+  box-sizing: border-box;
+  border-radius: 50px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background: #6A994E;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    text-decoration: none;
+  }
+}
+
+.btn-green{
+  padding: 16px 24px;
+  background: #6A994E;
+  border-radius: 50px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  color: #FFFFFF;
+
+  &:hover {
+    background: #FFFFFF;
+    color: #6A994E;
+    border: 2px solid #6A994E;
+  }
+}
