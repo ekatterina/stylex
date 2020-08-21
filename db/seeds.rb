@@ -22,7 +22,7 @@ address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisst
 
   # Outfit 1 __________________________________________________________________________
   item = Item.new(
-    title: Faker::Hipster.sentence(word_count: 2),
+    title: ["Summer look", "Cool city", "Stylish streewear", "Tomboy casual", "Urban natural"].sample,
     pickup_location: address.sample,
     price: rand(100..500),
     color: Faker::Color.color_name,
@@ -72,7 +72,7 @@ address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisst
 
   # Outfit 2 __________________________________________________________________________
   item = Item.new(
-    title: Faker::Hipster.sentence(word_count: 3),
+    title: ["Summer look", "Cool city", "Stylish streewear", "Tomboy casual", "Urban natural"].sample,
     pickup_location: address.sample,
     price: rand(100..500),
     color: Faker::Color.color_name,
@@ -108,7 +108,7 @@ address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisst
 
   # Outfit 3 __________________________________________________________________________
   item = Item.new(
-    title: Faker::Hipster.sentence(word_count: 3),
+    title: ["Summer look", "Cool city", "Stylish streewear", "Tomboy casual", "Urban natural"].sample,
     pickup_location: address.sample,
     price: rand(100..500),
     color: Faker::Color.color_name,
@@ -151,7 +151,7 @@ address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisst
 
   # Outfit 4 __________________________________________________________________________
   item = Item.new(
-    title: Faker::Hipster.sentence(word_count: 3),
+    title: ["Summer look", "Cool city", "Stylish streewear", "Tomboy casual", "Urban natural"].sample,
     pickup_location: address.sample,
     price: rand(100..500),
     color: Faker::Color.color_name,
@@ -201,7 +201,7 @@ address = ['Checkpoint Charlie, Berlin', 'Schloßstraße 9, Berlin', 'Johannisst
 
 # Outfit 5 __________________________________________________________________________
   item = Item.new(
-    title: Faker::Hipster.sentence(word_count: 3),
+    title: ["Summer look", "Cool city", "Stylish streewear", "Tomboy casual", "Urban natural"].sample,
     pickup_location: address.sample,
     price: rand(100..500),
     color: Faker::Color.color_name,
