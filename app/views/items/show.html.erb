@@ -14,6 +14,11 @@
     <%= cl_image_tag @item.individual_pieces[3].key, height: 300, width: 300, crop: :fill, :class => 'shadow img-thumbnail m-2' if !@item.individual_pieces[3].nil? %>
 
     <%#= link_to "Delete Item IN THE DASHBOARD ON THE CARD",
+      <% if policy(@item).destroy? %>
+        <%= link_to "Update", edit_item_path(item) %>
+      <% end %>
+    <%= link_to "Delete #{@item.title}",
+
             item_path(@item),
             method: :delete,
             data: { confirm: "Are you sure?" }, class: "btn btn-danger"  %>
