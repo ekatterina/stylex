@@ -1,29 +1,36 @@
-<div class="background-image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= image_path("stylegroup.png") %>');">
-  <div class="container d-flex">
-    <%= form_tag items_path, method: :get, class: "form-inline" do %>
-      <%= text_field_tag :pickup_location,
-        params[:pickup_location],
-        class: "form-control",
-        placeholder: "Location"
-        %>
-      <%= date_field_tag :start_date,
-        params[:start_date],
-        class: "form-control",
-        placeholder: "From:"
-        %>
-      <%= date_field_tag :end_date,
-        params[:end_date],
-        class: "form-control",
-        placeholder: "To:"
-        %>
-      <%= select_tag :size, options_for_select(['XS', 'S', 'M', 'L', 'XL', 'XXL']),
-        # params[:size],
-        class: "form-control"
-        # placeholder: "Size"
-        %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+<div class="background-image" style=" background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= image_path("stylegroup.png") %>');">
+    <div class="container">
+      <div class="center">
+      <%= form_tag items_path, method: :get, class: "form-inline" do %>
+        <%= text_field_tag :pickup_location,
+          params[:pickup_location],
+          class: "form-control",
+          placeholder: "Location"
+          %>
+        <%= date_field_tag :start_date,
+          params[:start_date],
+          class: "form-control",
+          placeholder: "From:"
+          %>
+        <%= date_field_tag :end_date,
+          params[:end_date],
+          class: "form-control",
+          placeholder: "To:"
+          %>
+        <%= select_tag :size, options_for_select(['XS', 'S', 'M', 'L', 'XL', 'XXL']),
+          # params[:size],
+          class: "form-control"
+          # placeholder: "Size"
+          %>
+
+     <div id="btn-placement"><%= button_tag( class: "btn btn-primary", id: "search-btn") do %>
+      <i class="fas fa-search"></i>
     <% end %>
-  </div>
+
+       </div>
+      <% end %>
+    </div>
+    </div>
 </div>
 
 <%#= f.collection_select :provider_id, Provider.order(:name),:id,:name, include_blank: true %>

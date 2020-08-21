@@ -1,5 +1,5 @@
 <%= simple_form_for [@item, @booking] do |f| %>
-  <%= f.input :start_date, as: :string, input_html: {type: :date} %>
-  <%= f.input :end_date, as: :string, input_html: {type: :date} %>
-  <%= f.submit 'Confirm now', :class => 'btn-green' %>
+  <%= f.input :start_date, as: :string, input_html: {type: :date}, :label => "From:", id: "b_l_1" %>
+  <%= f.input :end_date, as: :string, input_html: {type: :date}, :label => "To:", id: "b_l_2" %>
+  <%= f.submit 'Book now', :class => 'btn btn-primary', id: "banana" %>
 <% end %>
