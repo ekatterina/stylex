@@ -1,27 +1,22 @@
 
 <div class="container">
+    <h1><%= @item.title %></h1>
   <div class="modal-body row">
   <div class="col-md-6">
-    <%= cl_image_tag @item.style_photo.key, width: 400, height: 700, crop: :fill, :class => 'rounded'  if !@item.individual_pieces[0].nil? %>
-    <h1><%= @item.title %></h1>
-    <p><%= @item.description %></p>
+    <%= cl_image_tag @item.style_photo.key, width: 400, height: 550, crop: :fit, :class => 'border border-light shadow'  if !@item.individual_pieces[0].nil? %>
   </div>
   <div class="col-md-3">
-    <%= cl_image_tag @item.individual_pieces[0].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' if !@item.individual_pieces[0].nil? %>
-    <%= cl_image_tag @item.individual_pieces[1].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' if !@item.individual_pieces[1].nil? %>
-    <p>Price per night <%= @item.price%>€</p>
-    <p>Size: <%= @item.size %></p>
-    <p>Category: <%= @item.category %></p>
-    <p>Drop-off Location: <%= @item.pickup_location %></p>
+    <%= cl_image_tag @item.individual_pieces[0].key, height: 300, width: 300, crop: :fill, :class => 'shadow img-thumbnail m-2' if !@item.individual_pieces[0].nil? %>
+    <%= cl_image_tag @item.individual_pieces[1].key, height: 300, width: 300, crop: :fill, :class => 'shadow img-thumbnail m-2' if !@item.individual_pieces[1].nil? %>
   </div>
   <div class="col-md-3">
-    <%= cl_image_tag @item.individual_pieces[2].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' if !@item.individual_pieces[2].nil? %>
-    <%= cl_image_tag @item.individual_pieces[3].key, height: 300, width: 300, crop: :fill, :class => 'img-thumbnail m-2' if !@item.individual_pieces[3].nil? %>
+    <%= cl_image_tag @item.individual_pieces[2].key, height: 300, width: 300, crop: :fill, :class => 'shadow img-thumbnail m-2' if !@item.individual_pieces[2].nil? %>
+    <%= cl_image_tag @item.individual_pieces[3].key, height: 300, width: 300, crop: :fill, :class => 'shadow img-thumbnail m-2' if !@item.individual_pieces[3].nil? %>
 
-    <%= link_to "Delete #{@item.title}",
+    <%= link_to "Delete Item IN THE DASHBOARD ON THE CARD",
             item_path(@item),
             method: :delete,
-            data: { confirm: "Are you sure?" }  %>
+            data: { confirm: "Are you sure?" }, class: "btn btn-danger"  %>
 
   </div>
   </div>
@@ -30,7 +25,40 @@
   </div>
   <div class="col-md-6">
 
-    <%= render 'bookings/form', :booking => @booking %>
 
   </div>
+  <div class="modal-body row">
+  <div class="col-md-6">
+    <p><%= @item.description %></p>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">Price</th>
+          <td><%= @item.price%>€</td>
+        </tr>
+        <tr>
+          <th scope="row">Size</th>
+          <td><%= @item.size %></td>
+        </tr>
+        <tr>
+          <th scope="row">Color</th>
+          <td><%= @item.color %></td>
+        </tr>
+        <tr>
+          <th scope="row">Category</th>
+          <td><%= @item.category %></td>
+        </tr>
+        <tr>
+          <th scope="row">Location</th>
+          <td><%= @item.pickup_location %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+      <div class="col-md-6">
+        <%= cl_image_tag(@item.user.photo.key, :width => '50px', :class => 'rounded-circle shadow') %>
+        <p>Owner: <%=@item.user.first_name %> <%=@item.user.last_name %></p>
+    <%= render 'bookings/form', :booking => @booking %>
+      </div>
 </div>
